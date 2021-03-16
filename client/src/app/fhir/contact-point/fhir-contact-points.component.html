@@ -1,0 +1,9 @@
+<mat-card class="contactpoint-card" *ngFor="let contactPoint of contactPoints">
+  <mat-card-header>
+    <mat-card-title>{{contactPoint.system.toUpperCase()}}</mat-card-title>
+    <mat-card-subtitle>{{contactPoint.use?.toUpperCase()}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{contactPoint.value}}</p>
+  </mat-card-content>
+</mat-card>

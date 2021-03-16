@@ -1,0 +1,47 @@
+<div class="search-page">
+  <h1 class="page-title">Organizations</h1>
+
+  <button class="search-btn" mat-raised-button color="primary" (click)="search()">Search</button>
+  <mat-spinner style="display: inline-flex" diameter="17" *ngIf="loadingService.isLoading$ | async"></mat-spinner>
+  <div class="table-container" *ngIf="rows$">
+    <mat-table [dataSource]="rows$ | async">
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id</mat-header-cell>
+        <mat-cell *matCellDef="let element" style="text-align: right">
+          <a mat-button [routerLink]="'/Organization/' + element.id"> {{element.id}}</a>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="identifier">
+        <mat-header-cell *matHeaderCellDef> Identifier</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.identifier}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-button (click)="openDialog(element.resource)">Details</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"
+               class="element-row"></mat-row>
+
+    </mat-table>
+  </div>
+  <div *ngIf="next || previous" class="search-nav">
+    <button mat-raised-button color="primary" [disabled]="!previous" (click)="loadPrevious()">
+      <mat-icon>navigate_before</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" [disabled]="!next" (click)="loadNext()">
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+  </div>
+</div>

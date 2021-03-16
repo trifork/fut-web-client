@@ -1,0 +1,16 @@
+<div *ngIf="patient">
+  <div *ngIf="patient.photo" style="width: 400px">
+    <img style="width: 300px" *ngFor="let photo of patient.photo"
+         src="{{'data:' + photo.contentType + ';base64,' + photo.data}}"/>
+  </div>
+
+  <div>
+    <fhir-identifiers [identifier]="patient.identifier"></fhir-identifiers>
+    <fhir-addresses [addresses]="patient.address"></fhir-addresses>
+    <fhir-contact-points [contactPoints]="patient.telecom"></fhir-contact-points>
+  </div>
+
+  <div style="width: 900px">
+    <ngx-json-viewer [json]="patient"></ngx-json-viewer>
+  </div>
+</div>

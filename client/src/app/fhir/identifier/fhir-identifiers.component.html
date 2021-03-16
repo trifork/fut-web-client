@@ -1,0 +1,7 @@
+<mat-card class="identifier-card" *ngFor="let i of identifier">
+  <mat-card-header>
+    <mat-card-title>{{i.value}}</mat-card-title>
+    <mat-card-subtitle>{{i.use.toUpperCase()}}</mat-card-subtitle>
+    <mat-card-subtitle>{{i.system}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>

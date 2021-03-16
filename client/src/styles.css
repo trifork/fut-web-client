@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-drawer-container{
+  background: #F3F7FA;
+}
+
+.snackbar-error{
+  background-color: darkred;
+  white-space: pre-wrap;
+}
+.snackbar-warn{
+  background-color: #ffc107;
+  color: #343a40;
+  white-space: pre-wrap;
+}
+.snackbar-success{
+  background-color: forestgreen;
+  white-space: pre-wrap;
+}
+
+.page-title {
+  position: relative;
+  /*width: 153px;*/
+  /*height: 43px;*/
+  left: 20px;
+  /*top: 40px;*/
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+
+  color: #061460;
+
+}
+
+.fhir-detail-modal {
+  max-height: 95vh;
+  min-height: 95vh;
+  width: 40vw;
+}
+
+.search-page {
+  width: 80vw;
+}
+
+.search-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px;
+  background: #FFFFFF;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.mat-raised-button.search-btn {
+  margin-left: 20px;
+}
+
+.table-container {
+  width: 100%;
+  margin: 20px;
+}
+
+

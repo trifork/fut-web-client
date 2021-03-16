@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  nginx:
+    build: "."
+    image: fult-client:latest
+    ports:
+      - 9081:9080
+    environment:
+      PORT: 9080

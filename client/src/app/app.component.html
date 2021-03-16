@@ -1,0 +1,18 @@
+<div class="app-content" role="main">
+  <mat-sidenav-container class="app-sidenav-container">
+    <mat-sidenav mode="side" [(opened)]="showSidenav">
+      <div class="app-title">FUT Commander</div>
+      <div><a class="app-route" routerLinkActive="app-route-active" [routerLinkActiveOptions]="{exact: true}" mat-button [routerLink]="'/'">Home</a></div>
+      <div><a class="app-route" routerLinkActive="app-route-active" mat-button [routerLink]="'/Patient'">Patients</a></div>
+      <div><a class="app-route" routerLinkActive="app-route-active" mat-button [routerLink]="'/Organization'">Organization</a></div>
+      <div><a class="app-route" routerLinkActive="app-route-active" mat-button [routerLink]="'/CareTeam'">Care Team</a></div>
+      <div><a class="app-route" routerLinkActive="app-route-active" mat-button [routerLink]="'/EpisodeOfCare'">Episode Of Care</a></div>
+      <div><a class="app-route" routerLinkActive="app-route-active" mat-button [routerLink]="'/Message'">Message</a></div>
+      <div><a class="app-route" routerLinkActive="app-route-active" mat-button [routerLink]="'/Appointment'">Appointment</a></div>
+    </mat-sidenav>
+    <mat-sidenav-content class="app-main-window">
+      <app-context-bar></app-context-bar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

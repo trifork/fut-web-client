@@ -1,0 +1,20 @@
+{
+  "/patient-service": {
+    "target": "https://patient.inttest.ehealth.sundhed.dk",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {"^/patient-service" : ""}
+  },
+  "/care-plan-service": {
+    "target": "https://careplan.inttest.ehealth.sundhed.dk",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {"^/care-plan-service" : ""}
+  },
+  "/organization-service": {
+    "target": "https://organization.inttest.ehealth.sundhed.dk",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {"^/organization-service" : ""}
+  }
+}

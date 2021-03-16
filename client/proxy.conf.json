@@ -1,0 +1,20 @@
+{
+  "/patient-service": {
+    "target": "https://patient.fut.trifork.com",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {"^/patient-service" : ""}
+  },
+  "/care-plan-service": {
+    "target": "https://careplan.fut.trifork.com",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {"^/care-plan-service" : ""}
+  },
+  "/organization-service": {
+    "target": "https://organization.fut.trifork.com",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {"^/organization-service" : ""}
+  }
+}

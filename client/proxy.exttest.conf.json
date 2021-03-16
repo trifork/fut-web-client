@@ -1,0 +1,20 @@
+{
+  "/patient-service": {
+    "target": "https://patient.exttest.ehealth.sundhed.dk/fhir",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {"^/patient-service" : ""}
+  },
+  "/care-plan-service": {
+    "target": "https://careplan.exttest.ehealth.sundhed.dk/fhir",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {"^/care-plan-service" : ""}
+  },
+  "/organization-service": {
+    "target": "https://organization.exttest.ehealth.sundhed.dk/fhir",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {"^/organization-service" : ""}
+  }
+}

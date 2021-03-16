@@ -1,0 +1,6 @@
+<button mat-button *ngIf="isLoggedIn" type="button" (click)="userService.logout()">Log out</button>
+<button mat-button *ngIf="!isLoggedIn" type="button" (click)="userService.login()">Log in</button>
+
+<app-user-profile [userProfile]="userService.userProfile$ | async" [context]="userService.currentContext$ | async"></app-user-profile>
+<app-available-context [availableContext]="userService.availableContext$ | async"></app-available-context>
+

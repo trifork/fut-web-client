@@ -1,0 +1,64 @@
+<div class="search-page">
+  <h1 class="page-title">Patients</h1>
+
+  <button class="search-btn" mat-raised-button color="primary" (click)="search()">Search</button>
+  <mat-spinner style="display: inline-flex" diameter="17" *ngIf="loadingService.isLoading$ | async"></mat-spinner>
+  <div class="table-container" *ngIf="rows$">
+    <mat-table [dataSource]="rows$ | async">
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id</mat-header-cell>
+        <mat-cell *matCellDef="let element" style="text-align: right">
+          <a mat-button [routerLink]="'/Patient/' + element.id"> {{element.id}}</a>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cpr">
+        <mat-header-cell *matHeaderCellDef> CPR</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.cpr}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef> Gender</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef> Date of Birth</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <mat-header-cell *matHeaderCellDef> Address</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-button (click)="openDialog(element.resource)">Details</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"
+               class="element-row"></mat-row>
+
+
+    </mat-table>
+  </div>
+  <div *ngIf="next || previous" class="search-nav">
+    <button mat-raised-button color="primary" [disabled]="!previous" (click)="loadPrevious()">
+      <mat-icon>navigate_before</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" [disabled]="!next" (click)="loadNext()">
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+  </div>
+</div>
+

@@ -1,0 +1,59 @@
+{
+  "_from": "keycloak-js",
+  "_id": "keycloak-js@12.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-vrozH1lPP4c+V7/5A9gfb+9JxX6wdRFntzuaYGPnrVJhoayt6zfvau8kjwXB3YY6Jb3DE8pMT6YxeSVA+cYorw==",
+  "_location": "/keycloak-js",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "keycloak-js",
+    "name": "keycloak-js",
+    "escapedName": "keycloak-js",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/keycloak-js/-/keycloak-js-12.0.1.tgz",
+  "_shasum": "debb7807838c1640ddae629e99aa85add1e57374",
+  "_spec": "keycloak-js",
+  "_where": "C:\\FUT\\fut-commander\\client",
+  "author": {
+    "name": "Keycloak"
+  },
+  "bugs": {
+    "url": "https://github.com/keycloak/keycloak/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "base64-js": "1.3.1",
+    "js-sha256": "0.9.0"
+  },
+  "deprecated": false,
+  "description": "Keycloak Adapter",
+  "homepage": "https://www.keycloak.org",
+  "keywords": [
+    "keycloak",
+    "sso",
+    "oauth",
+    "oauth2",
+    "authentication"
+  ],
+  "license": "Apache-2.0",
+  "main": "dist/keycloak.js",
+  "name": "keycloak-js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keycloak/keycloak.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "typings": "dist/keycloak.d.ts",
+  "version": "12.0.1"
+}

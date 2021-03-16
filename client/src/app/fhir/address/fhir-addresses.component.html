@@ -1,0 +1,18 @@
+<mat-card class="address-card" *ngFor="let address of addresses">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon>business</mat-icon>
+    </div>
+    <mat-card-title>{{address.type.toUpperCase()}}</mat-card-title>
+    <mat-card-subtitle>{{address.use.toUpperCase()}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <div mat-line *ngFor="let line of address.line">{{line}}</div>
+        <div mat-line>{{address.postalCode}} {{address.city}}</div>
+        <div mat-line>{{address.country}}</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

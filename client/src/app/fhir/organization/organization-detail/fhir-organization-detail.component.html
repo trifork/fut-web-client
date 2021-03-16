@@ -1,0 +1,36 @@
+<div *ngIf="organization">
+  <mat-card class="organization-card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon>business</mat-icon>
+      </div>
+      <mat-card-title>{{organization.name}}</mat-card-title>
+      <mat-card-subtitle>{{organization.alias.join(', ')}}</mat-card-subtitle>
+      <mat-card-subtitle>Organization/{{organization.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h3>Type</h3>
+      <fhir-codeable-conept *ngFor="let type of organization.type"
+                                     [codeableConcept]="type"></fhir-codeable-conept>
+      <h3>CVR</h3>
+      <p>{{getCVR()}}</p>
+      <h3>Region Code</h3>
+      <p>{{getRegion()}}</p>
+      <h3>Municipality Code</h3>
+      <p>{{getMunicipality()}}</p>
+      <h3>Source</h3>
+      <fhir-codeable-conept [codeableConcept]="getSource()"></fhir-codeable-conept>
+      <h3>Syncronization status</h3>
+      <fhir-codeable-conept [codeableConcept]="getSyncStatus()"></fhir-codeable-conept>
+      <h3>Identifier</h3>
+      <fhir-identifiers [identifier]="organization.identifier"></fhir-identifiers>
+      <h3 *ngIf="organization.address">Address</h3>
+      <fhir-addresses [addresses]="organization.address"></fhir-addresses>
+      <h3 *ngIf="organization.telecom">Telecom</h3>
+      <fhir-contact-points [contactPoints]="organization.telecom"></fhir-contact-points>
+    </mat-card-content>
+  </mat-card>
+  <ngx-json-viewer [json]="organization"></ngx-json-viewer>
+</div>
+
+
