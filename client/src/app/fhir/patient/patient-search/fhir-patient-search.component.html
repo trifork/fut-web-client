@@ -10,7 +10,7 @@
         <mat-cell *matCellDef="let element">
           <button mat-icon-button matTooltip="Add to context" color="accent" (click)="addPatientToContext(element)"><mat-icon>add</mat-icon> </button>
           <div style="width: 10px"></div>
-          <a [routerLink]="'/Patient/' + element.id"> {{element.id}}</a>
+          <a matTooltip="Fetch resource" [routerLink]="'/Patient/' + element.id"> {{element.id}}</a>
         </mat-cell>
       </ng-container>
 

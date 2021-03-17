@@ -7,7 +7,7 @@
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef> Id</mat-header-cell>
         <mat-cell *matCellDef="let element" style="text-align: right">
-          <a [routerLink]="'/Message/' + element.id"> {{element.id}}</a>
+          <a matTooltip="Fetch resource" [routerLink]="'/Message/' + element.id"> {{element.id}}</a>
         </mat-cell>
       </ng-container>
 

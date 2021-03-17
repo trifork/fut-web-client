@@ -9,7 +9,7 @@
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef> Id</mat-header-cell>
         <mat-cell *matCellDef="let element" style="text-align: right">
-          <a [routerLink]="'/Appointment/' + element.id"> {{element.id}}</a>
+          <a matTooltip="Fetch resource" [routerLink]="'/Appointment/' + element.id"> {{element.id}}</a>
         </mat-cell>
       </ng-container>
 
