@@ -1,7 +1,11 @@
 # About FUT
 Fælles Udbredelse af Telemedicin (FUT) is a Danish national healthcare platform aimed for telemedicine use that can host 3rd-party apps.  
 The platform offers single sign-on, and a secured HL7 FHIR API that the hosted apps can use to search, access and store information about patients and their data (episodes of care, appointments, etc) and administrative data (organizations, care teams, etc).  
-See https://digst.dk/digital-service/digital-velfaerd/telemedicin-kol/faelles-udbud-af-telemedicin-fut
+
+See 
+- Project description: https://digst.dk/digital-service/digital-velfaerd/telemedicin-kol/faelles-udbud-af-telemedicin-fut
+- Infrastructure docs: https://ehealth-dk.atlassian.net/wiki/spaces/EDTW/overview
+- API docs: https://docs.ehealth.sundhed.dk/latest/ig/index.html
 
 # FUT Web Client
 The FUT web client demonstrates ways to interact with FUT services and is not for direct clinical or administrative use.  
