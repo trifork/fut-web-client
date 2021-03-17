@@ -14,7 +14,6 @@
 }
 
 .app-route.app-route-active {
-  font-weight: bold;
   color: rgba(0, 100, 254, 1);
   background: rgba(242, 247, 255, 1);
   border-right: 4px;
