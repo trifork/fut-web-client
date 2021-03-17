@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../user/user.service';
 import {IdType} from '../fhir/id-type';
+import {EHealthContext} from '../user/model/ehealth-context';
 
 @Component({
   selector: 'app-context-bar',
@@ -8,7 +9,8 @@ import {IdType} from '../fhir/id-type';
   styleUrls: ['./context-bar.component.css']
 })
 export class ContextBarComponent implements OnInit {
-
+  trim = IdType.trim;
+  context: EHealthContext;
   hasContext: boolean;
   careTeam: string;
   organization: string;
@@ -20,6 +22,7 @@ export class ContextBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.currentContext$.subscribe(context => {
+      this.context = context;
       this.careTeam = this.format(context?.careTeam);
       this.organization = this.format(context?.organization);
       this.patient = this.format(context?.patient);

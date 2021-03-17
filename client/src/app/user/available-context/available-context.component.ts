@@ -3,7 +3,7 @@ import {UserService} from '../user.service';
 import {AvailableContext} from '../model/available-context';
 
 @Component({
-  selector: 'app-available-context',
+  selector: 'fut-available-context',
   templateUrl: './available-context.component.html',
   styleUrls: ['./available-context.component.css']
 })

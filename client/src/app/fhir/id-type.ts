@@ -5,6 +5,10 @@ export class IdType {
   readonly resourceType: string;
   readonly version: string;
 
+  static trim(id: string): string {
+    return IdType.parse(id).getIdPart();
+  }
+
   static parse(value: string): IdType {
     let copy = value;
     let version: string;

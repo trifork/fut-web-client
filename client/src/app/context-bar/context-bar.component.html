@@ -1,7 +1,7 @@
 <mat-toolbar>
   <mat-toolbar-row *ngIf="hasContext">
-    <div *ngIf="organization">
-      <button mat-button>
+    <div *ngIf="organization" [matTooltipDisabled]="userService.isUserInRole('Organization.read')" matTooltip="No Organization.read role">
+      <button mat-button [disabled]="!userService.isUserInRole('Organization.read')" [routerLink]="['Organization', trim(context.organization)]">
         <mat-icon>business</mat-icon>
         {{organization}}
       </button>
@@ -10,28 +10,34 @@
       <button mat-icon-button disabled>
         <mat-icon>arrow_forward_ios</mat-icon>
       </button>
-      <button mat-button>
-        <mat-icon>groups</mat-icon>
-        {{careTeam}}
-      </button>
+      <span [matTooltipDisabled]="userService.isUserInRole('CareTeam.read')" matTooltip="No CareTeam.read role">
+        <button mat-button [disabled]="!userService.isUserInRole('CareTeam.read')" [routerLink]="['CareTeam', trim(context.careTeam)]">
+          <mat-icon>groups</mat-icon>
+          {{careTeam}}
+        </button>
+      </span>
     </div>
     <div *ngIf="patient">
       <button mat-icon-button disabled>
         <mat-icon>arrow_forward_ios</mat-icon>
       </button>
-      <button mat-button>
-        <mat-icon>person</mat-icon>
-        {{patient}}
-      </button>
+      <span [matTooltipDisabled]="userService.isUserInRole('Patient.read')" matTooltip="No Patient.read role">
+        <button mat-button [disabled]="!userService.isUserInRole('Patient.read')" [routerLink]="['Patient', trim(context.patient)]">
+          <mat-icon>person</mat-icon>
+          {{patient}}
+        </button>
+        </span>
     </div>
     <div *ngIf="episodeOfCare">
       <button mat-icon-button disabled>
         <mat-icon>arrow_forward_ios</mat-icon>
       </button>
-      <button mat-button>
-        <mat-icon>assignment_ind</mat-icon>
-        {{episodeOfCare}}
-      </button>
+      <span [matTooltipDisabled]="userService.isUserInRole('EpisodeOfCare.read')" matTooltip="No EpisodeOfCare.read role">
+        <button mat-button [disabled]="!userService.isUserInRole('EpisodeOfCare.read')" [routerLink]="['EpisodeOfCare', trim(context.episodeOfCare)]">
+          <mat-icon>assignment_ind</mat-icon>
+          {{episodeOfCare}}
+        </button>
+      </span>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

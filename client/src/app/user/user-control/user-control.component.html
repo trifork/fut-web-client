@@ -1,0 +1,34 @@
+<div class="fut-user-control">
+  <div *ngIf="!isLoggedIn">
+    <button mat-raised-button color="primary" type="button" (click)="userService.login()">Log in</button>
+  </div>
+
+  <div *ngIf="isLoggedIn">
+    <div style="color: rgba(0, 0, 0, 0.4)">Logged in as</div>
+    <div class="fut-user-card">
+      <div class="fut-user-card-line fut-user-name">{{userProfile.name}}</div>
+      <a matTooltip="Open IDP Account" mat-icon-button [href]="userProfile.url" target="_blank">
+        <mat-icon>open_in_new</mat-icon>
+      </a>
+    </div>
+    <div class="fut-user-card">
+      <div>
+        <div class="fut-user-card-line">{{userProfile.type}}</div>
+        <div><span *ngIf="trim(userProfile.id)">Id: </span>{{trim(userProfile.id)}}</div>
+      </div>
+<!-- TODO: Practitioner resource not yet implemented
+      <a matTooltip="Open resource" mat-icon-button *ngIf="userProfile.type === 'PRACTITIONER' && userService.isUserInRole('Practitioner.read')" [routerLink]="['Practitioner', trim(userProfile.id)]" routerLinkActive="active">
+        <mat-icon>open_in_new</mat-icon>
+      </a>
+-->
+    </div>
+    <button class="fut-log-out" mat-button type="button" color="accent" (click)="userService.logout()">Log out</button>
+  </div>
+</div>
+
+
+
+
+
+
+

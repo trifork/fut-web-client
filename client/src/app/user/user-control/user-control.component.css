@@ -1,0 +1,24 @@
+.fut-user-control {
+  margin: 22px;
+  font-size: 14px;
+}
+
+.fut-log-out {
+  margin-left: -16px;
+  font-size: 16px;
+}
+
+.fut-user-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fut-user-name {
+  font-weight: 500
+}
+
+.fut-user-card-line {
+  align-self: center;
+}
+
+

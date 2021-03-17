@@ -16,6 +16,10 @@ body {
   background: #F3F7FA;
 }
 
+.mat-snack-bar-container {
+  max-width: 100% !important;
+}
+
 .snackbar-error{
   background-color: darkred;
   white-space: pre-wrap;

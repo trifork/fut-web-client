@@ -1,54 +1,5 @@
 <div *ngIf="userProfile">
-  <mat-list>
-    <div mat-subheader>User information</div>
-    <mat-list-item>
-      <mat-icon mat-list-icon>account_circle</mat-icon>
-      <div mat-line>Name</div>
-      <div mat-line>{{userProfile.name}}</div>
-      <a mat-icon-button [href]="userProfile.url" target="_blank"><mat-icon>open_in_new</mat-icon></a>
-    </mat-list-item>
-    <mat-list-item>
-      <mat-icon mat-list-icon>health_and_safety</mat-icon>
-      <div mat-line>{{userProfile.type}}</div>
-      <div mat-line>{{trim(userProfile.id)}}</div>
-      <a  mat-icon-button *ngIf="userProfile.type === 'PRACTITIONER' && userService.isUserInRole('Practitioner.read')"
-         [routerLink]="['Practitioner', trim(userProfile.id)]" routerLinkActive="active">
-        <mat-icon>read_more</mat-icon>
-      </a>
-    </mat-list-item>
-  </mat-list>
-  <mat-list *ngIf="context">
-    <mat-divider></mat-divider>
-    <div mat-subheader>Context</div>
-    <mat-list-item *ngIf="context.organization">
-      <mat-icon mat-list-icon>business</mat-icon>
-      <div mat-line>Organization</div>
-      <div mat-line> {{trim(context.organization)}} </div>
-      <a mat-icon-button *ngIf="userService.isUserInRole('Organization.read')"
-         [routerLink]="['Organization', trim(context.organization)]" routerLinkActive="active">
-        <mat-icon>read_more</mat-icon>
-      </a>
-    </mat-list-item>
-    <mat-list-item *ngIf="context.careTeam">
-      <mat-icon mat-list-icon>groups</mat-icon>
-      <div mat-line>Care Team</div>
-      <div mat-line> {{trim(context.careTeam)}} </div>
-      <a mat-icon-button *ngIf="userService.isUserInRole('CareTeam.read')"
-         [routerLink]="['CareTeam', trim(context.careTeam)]" routerLinkActive="active">
-        <mat-icon>read_more</mat-icon>
-      </a>
-    </mat-list-item>
-    <mat-list-item *ngIf="context.patient">
-      <mat-icon mat-list-icon>person</mat-icon>
-      <div mat-line>Patient</div>
-      <div mat-line> {{trim(context.patient)}} </div>
-    </mat-list-item>
-    <mat-list-item *ngIf="context.episodeOfCare">
-      <mat-icon mat-list-icon>assignment_ind</mat-icon>
-      <div mat-line>Episode Of Care</div>
-      <div mat-line> {{trim(context.episodeOfCare)}} </div>
-    </mat-list-item>
-  </mat-list>
+
   <mat-expansion-panel *ngIf="userProfile.roles.length > 0">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -63,5 +14,6 @@
 
   </mat-expansion-panel>
 
+  <fut-available-context [availableContext]="userService.availableContext$ | async"></fut-available-context>
 
 </div>

@@ -16,7 +16,7 @@ import {UserProfileComponent} from './user/user-profile/user-profile.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {FhirOrganizationPageComponent} from './fhir/organization/organization-page/fhir-organization-page.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
-import {UserComponent} from './user/user.component';
+import {UserControlComponent} from './user/user-control/user-control.component';
 import {FhirAddressesComponent} from './fhir/address/fhir-addresses.component';
 import {FhirIdentifiersComponent} from './fhir/identifier/fhir-identifiers.component';
 import {FhirContactPointsComponent} from './fhir/contact-point/fhir-contact-points.component';
@@ -61,6 +61,7 @@ import {FhirOrganizationDetailComponent} from './fhir/organization/organization-
 import {FhirCareTeamDetailComponent} from './fhir/care-team/care-team-detail/fhir-care-team-detail.component';
 import {FhirCareTeamDetailModalComponent} from './fhir/care-team/care-team-detail-modal/fhir-care-team-detail-modal.component';
 import {FhirMessageDetailModalComponent} from './fhir/communication/message/message-detail-modal/fhir-message-detail-modal.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 function initializeKeycloak(keycloak: KeycloakService): () => Promise<boolean> {
@@ -82,7 +83,7 @@ function initializeKeycloak(keycloak: KeycloakService): () => Promise<boolean> {
     AvailableContextComponent,
     UserProfileComponent,
     FhirOrganizationPageComponent,
-    UserComponent,
+    UserControlComponent,
     FhirAddressesComponent,
     FhirIdentifiersComponent,
     FhirContactPointsComponent,
@@ -130,6 +131,7 @@ function initializeKeycloak(keycloak: KeycloakService): () => Promise<boolean> {
     MatProgressBarModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
+    MatGridListModule,
     KeycloakAngularModule,
     HttpClientModule,
     AppRoutingModule,
