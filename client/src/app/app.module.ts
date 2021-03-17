@@ -46,7 +46,7 @@ import {LoadingService} from './spinner/loading.service';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {FhirAppointmentDetailComponent} from './fhir/appointment/appointment-detail/fhir-appointment-detail.component';
 import {FhirAppointmentDetailModalComponent} from './fhir/appointment/appointment-detail-modal/fhir-appointment-detail-modal.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {ContextBarComponent} from './context-bar/context-bar.component';
 import {FhirAppointmentPageComponent} from './fhir/appointment/appointment-page/fhir-appointment-page.component';

@@ -4,8 +4,8 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {FhirService} from '../../fhir.service';
 import {LoadingService} from '../../../spinner/loading.service';
-import {MatDialog} from "@angular/material/dialog";
-import {FhirPatientDetailModalComponent} from "../patient-detail-modal/fhir-patient-detail-modal.component";
+import {MatDialog} from '@angular/material/dialog';
+import {FhirPatientDetailModalComponent} from '../patient-detail-modal/fhir-patient-detail-modal.component';
 import Bundle = fhir.Bundle;
 import Patient = fhir.Patient;
 import BundleLink = fhir.BundleLink;
@@ -26,6 +26,9 @@ import {environment} from '../../../../environments/environment';
 })
 export class FhirPatientSearchComponent {
 
+  constructor(private fhir: FhirService, public loadingService: LoadingService, public dialog: MatDialog, public userService: UserService) {
+  }
+
 
 
   bundle = new BehaviorSubject<Bundle>(null);
@@ -33,12 +36,6 @@ export class FhirPatientSearchComponent {
   displayedColumns = ['id', 'name', 'cpr', 'gender', 'date', 'address', 'details'];
   next: BundleLink;
   previous: BundleLink;
-
-
-  isExpansionDetailRow = (i: number, row: object) => row.hasOwnProperty('detailRow');
-
-  constructor(private fhir: FhirService, public loadingService: LoadingService, public dialog: MatDialog, public userService: UserService) {
-  }
 
   private static toPatientRow(patient: fhir.Patient): PatientRow {
     const name = patient.name.filter(n => n.use === 'official')[0];
@@ -56,6 +53,9 @@ export class FhirPatientSearchComponent {
       patient
     );
   }
+
+
+  isExpansionDetailRow = (i: number, row: object) => row.hasOwnProperty('detailRow');
 
   addPatientToContext(pat: PatientRow): void {
     this.userService.addPatientToContext('https://patient.' + environment.baseUrl + '/fhir/Patient/' + pat.id);
@@ -99,7 +99,7 @@ export class FhirPatientSearchComponent {
     this.fhir.getPage(this.previous, 'patient-service').subscribe(b => this.bundle.next(b));
   }
 
-  openDialog(resource: Patient) {
+  openDialog(resource: Patient): void {
     this.dialog.open(FhirPatientDetailModalComponent, {
       data: {patient: resource},
       position: {right: '0'}

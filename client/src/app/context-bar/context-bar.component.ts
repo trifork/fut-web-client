@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from "../user/user.service";
-import {IdType} from "../fhir/id-type";
+import {UserService} from '../user/user.service';
+import {IdType} from '../fhir/id-type';
 
 @Component({
   selector: 'app-context-bar',
@@ -9,7 +9,7 @@ import {IdType} from "../fhir/id-type";
 })
 export class ContextBarComponent implements OnInit {
 
-  hasContext: boolean
+  hasContext: boolean;
   careTeam: string;
   organization: string;
   patient: string;
@@ -20,12 +20,12 @@ export class ContextBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.currentContext$.subscribe(context => {
-      this.careTeam = this.format(context?.careTeam)
+      this.careTeam = this.format(context?.careTeam);
       this.organization = this.format(context?.organization);
       this.patient = this.format(context?.patient);
       this.episodeOfCare = this.format(context?.episodeOfCare);
       this.hasContext = this.organization != null || this.careTeam != null;
-    })
+    });
   }
 
   format(id: string): string {

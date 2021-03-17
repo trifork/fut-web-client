@@ -66,7 +66,7 @@ export class FhirCareTeamSearchComponent implements OnInit {
               const careTeam = entry.resource as CareTeam;
               const element = new CareTeamRow(
                 careTeam.id, careTeam.name, careTeam.identifier[0].value, careTeam.reasonCode[0].coding[0].code, false, careTeam
-              )
+              );
               rows.push(element);
             }
           );
@@ -82,7 +82,7 @@ export class FhirCareTeamSearchComponent implements OnInit {
     });
   }
 
-  openDialog(resource: CareTeam) {
+  openDialog(resource: CareTeam): void {
     this.dialog.open(FhirCareTeamDetailModalComponent, {
       data: {careTeam: resource},
       position: {right: '0'}

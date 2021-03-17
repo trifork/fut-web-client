@@ -10,9 +10,9 @@ import {FhirMessageSearchComponent} from '../fhir/communication/message/message-
 import {FhirAppointmentSearchComponent} from '../fhir/appointment/appointment-search/fhir-appointment-search.component';
 import {FhirOrganizationSearchComponent} from '../fhir/organization/organization-search/fhir-organization-search.component';
 import {FhirCareTeamSearchComponent} from '../fhir/care-team/care-team-search/fhir-care-team-search.component';
-import {FhirAppointmentPageComponent} from "../fhir/appointment/appointment-page/fhir-appointment-page.component";
-import {FhirMessagePageComponent} from "../fhir/communication/message/message-page/fhir-message-page.component";
-import {FhirEpisodeOfCarePageComponent} from "../fhir/episode-of-care/episode-of-care-page/fhir-episode-of-care-page.component";
+import {FhirAppointmentPageComponent} from '../fhir/appointment/appointment-page/fhir-appointment-page.component';
+import {FhirMessagePageComponent} from '../fhir/communication/message/message-page/fhir-message-page.component';
+import {FhirEpisodeOfCarePageComponent} from '../fhir/episode-of-care/episode-of-care-page/fhir-episode-of-care-page.component';
 
 const routes: Routes = [
   {path: '', component: UserComponent},

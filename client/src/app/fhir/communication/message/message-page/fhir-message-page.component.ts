@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Communication = fhir.Communication;
-import {FhirService} from "../../../fhir.service";
-import {ActivatedRoute} from "@angular/router";
-import {map, switchMap} from "rxjs/operators";
+import {FhirService} from '../../../fhir.service';
+import {ActivatedRoute} from '@angular/router';
+import {map, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'fhir-message-page',
@@ -18,9 +18,9 @@ export class FhirMessagePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-      .pipe<string>(map(params => params['id']))
+      .pipe<string>(map(params => params.id))
       .pipe(switchMap(id => this.fhir.readMessage(id)))
-      .subscribe(a => this.message = a)
+      .subscribe(a => this.message = a);
   }
 
 }

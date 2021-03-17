@@ -124,7 +124,7 @@ export class FhirService {
       BaseUrl.get() + '/patient-service/fhir/Appointment/' + id,
       {
         observe: 'body'
-      })
+      });
   }
 
   readMessage(id: string): Observable<Communication> {
@@ -132,7 +132,7 @@ export class FhirService {
       BaseUrl.get() + '/patient-service/fhir/Communication/' + id,
       {
         observe: 'body'
-      })
+      });
   }
 
   readEpisodeOfCare(id: string): Observable<EpisodeOfCare> {
@@ -140,7 +140,7 @@ export class FhirService {
       BaseUrl.get() + '/care-plan-service/fhir/EpisodeOfCare/' + id,
       {
         observe: 'body'
-      })
+      });
   }
 
   readOrganization(id: string): Observable<Organization> {
@@ -148,7 +148,7 @@ export class FhirService {
       BaseUrl.get() + '/organization-service/fhir/Organization/' + id,
       {
         observe: 'body'
-      })
+      });
   }
 
   readCareTeam(id: string): Observable<CareTeam> {
@@ -156,6 +156,6 @@ export class FhirService {
       BaseUrl.get() + '/organization-service/fhir/CareTeam/' + id,
       {
         observe: 'body'
-      })
+      });
   }
 }

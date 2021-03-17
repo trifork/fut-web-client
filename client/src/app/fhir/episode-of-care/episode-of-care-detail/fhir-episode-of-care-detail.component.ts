@@ -1,6 +1,6 @@
 import {Component, enableProdMode, Input, OnInit} from '@angular/core';
 import EpisodeOfCare = fhir.EpisodeOfCare;
-import {IdType} from "../../id-type";
+import {IdType} from '../../id-type';
 import Reference = fhir.Reference;
 
 @Component({
@@ -34,7 +34,7 @@ export class FhirEpisodeOfCareDetailComponent implements OnInit {
   }
 
   getId(ref: Reference): IdType {
-    return ref?.reference ? IdType.parse(ref.reference) : null
+    return ref?.reference ? IdType.parse(ref.reference) : null;
   }
 
 }

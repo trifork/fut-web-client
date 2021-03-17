@@ -8,7 +8,7 @@ import {UserService} from './user/user.service';
 })
 export class AppComponent implements OnInit {
   title = 'client';
-  showSidenav: boolean = true;
+  showSidenav = true;
 
   constructor(public userService: UserService) {
   }

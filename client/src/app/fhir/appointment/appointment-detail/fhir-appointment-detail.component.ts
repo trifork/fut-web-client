@@ -8,7 +8,7 @@ import Appointment = fhir.Appointment;
 })
 export class FhirAppointmentDetailComponent implements OnInit {
 
-  @Input() appointment: Appointment
+  @Input() appointment: Appointment;
 
   constructor() { }
 

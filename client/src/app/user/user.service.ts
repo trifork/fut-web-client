@@ -72,7 +72,7 @@ export class UserService {
 
     const ctx = this.keycloakInstance.tokenParsed['context'];
     if (ctx) {
-      let eHealthContext = new EHealthContext(
+      const eHealthContext = new EHealthContext(
         ctx['care_team_id'],
         ctx['organization_id'],
         ctx['patient_id'],

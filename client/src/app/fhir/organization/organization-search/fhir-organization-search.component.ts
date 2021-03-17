@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FhirService} from '../../fhir.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {LoadingService} from "../../../spinner/loading.service";
-import {animate, state, style, transition, trigger} from "@angular/animations";
-import {FhirOrganizationDetailModalComponent} from "../organization-detail-modal/fhir-organization-detail-modal.component";
-import {MatDialog} from "@angular/material/dialog";
+import {LoadingService} from '../../../spinner/loading.service';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {FhirOrganizationDetailModalComponent} from '../organization-detail-modal/fhir-organization-detail-modal.component';
+import {MatDialog} from '@angular/material/dialog';
 import Bundle = fhir.Bundle;
 import Organization = fhir.Organization;
 import BundleLink = fhir.BundleLink;
@@ -69,7 +69,7 @@ export class FhirOrganizationSearchComponent implements OnInit {
                 org.alias != null ? org.alias?.join(',') : org.name,
                 org.identifier != null ? org.identifier[0].value : '--',
                 false, org
-              )
+              );
               rows.push(element);
             }
           );
@@ -85,7 +85,7 @@ export class FhirOrganizationSearchComponent implements OnInit {
     });
   }
 
-  openDialog(resource: Organization) {
+  openDialog(resource: Organization): void {
     this.dialog.open(FhirOrganizationDetailModalComponent, {
       data: {organization: resource},
       position: {right: '0'}

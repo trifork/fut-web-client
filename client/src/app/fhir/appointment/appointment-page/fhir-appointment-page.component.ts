@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FhirService} from "../../fhir.service";
-import {ActivatedRoute} from "@angular/router";
-import {map, switchMap} from "rxjs/operators";
+import {FhirService} from '../../fhir.service';
+import {ActivatedRoute} from '@angular/router';
+import {map, switchMap} from 'rxjs/operators';
 import Appointment = fhir.Appointment;
 
 @Component({
@@ -18,9 +18,9 @@ export class FhirAppointmentPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-      .pipe<string>(map(params => params['id']))
+      .pipe<string>(map(params => params.id))
       .pipe(switchMap(id => this.fhir.readAppointment(id)))
-      .subscribe(a => this.appointment = a)
+      .subscribe(a => this.appointment = a);
   }
 
 }

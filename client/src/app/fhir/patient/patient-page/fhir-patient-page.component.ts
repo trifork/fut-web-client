@@ -17,7 +17,7 @@ export class FhirPatientPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-      .pipe<string>(map(params => params['id']))
+      .pipe<string>(map(params => params.id))
       .pipe(switchMap(id => this.fhir.readPatient(id)))
       .subscribe(patient => this.patient = patient);
   }

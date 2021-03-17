@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {map} from 'rxjs/operators';
-import {BehaviorSubject, Observable} from "rxjs";
-import {FhirService} from "../../fhir.service";
-import {LoadingService} from "../../../spinner/loading.service";
-import {UserService} from "../../../user/user.service";
-import {animate, state, style, transition, trigger} from "@angular/animations";
-import {IdType} from "../../id-type";
-import {environment} from "../../../../environments/environment";
-import {MatDialog} from "@angular/material/dialog";
-import {FhirEpisodeOfCareDetailModalComponent} from "../episode-of-care-detail-modal/fhir-episode-of-care-detail-modal.component";
+import {BehaviorSubject, Observable} from 'rxjs';
+import {FhirService} from '../../fhir.service';
+import {LoadingService} from '../../../spinner/loading.service';
+import {UserService} from '../../../user/user.service';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {IdType} from '../../id-type';
+import {environment} from '../../../../environments/environment';
+import {MatDialog} from '@angular/material/dialog';
+import {FhirEpisodeOfCareDetailModalComponent} from '../episode-of-care-detail-modal/fhir-episode-of-care-detail-modal.component';
 import Bundle = fhir.Bundle;
 import BundleLink = fhir.BundleLink;
 import EpisodeOfCare = fhir.EpisodeOfCare;
@@ -79,7 +79,7 @@ export class FhirEpisodeOfCareSearchComponent implements OnInit {
                 eoc.period.start,
                 eoc.period.end,
                 false, eoc
-              )
+              );
               rows.push(element);
             }
           );
@@ -96,14 +96,14 @@ export class FhirEpisodeOfCareSearchComponent implements OnInit {
   }
 
   addEpisodeOfCareToContext(eoc: EpisodeOfCare): void {
-    this.userService.addEpisodeOfCareToContext('https://careplan.' + environment.baseUrl + '/fhir/EpisodeOfCare/'+ eoc.id);
+    this.userService.addEpisodeOfCareToContext('https://careplan.' + environment.baseUrl + '/fhir/EpisodeOfCare/' + eoc.id);
   }
 
   addPatientToContext(eoc: EpisodeOfCare): void {
     this.userService.addPatientToContext(eoc.patient.reference);
   }
 
-  openDialog(resource: EpisodeOfCare) {
+  openDialog(resource: EpisodeOfCare): void {
     this.dialog.open(FhirEpisodeOfCareDetailModalComponent, {
       data: {episodeOfCare: resource},
       position: {right: '0'}

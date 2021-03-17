@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {FhirService} from '../../fhir.service';
-import {BehaviorSubject, Observable} from "rxjs";
-import {LoadingService} from "../../../spinner/loading.service";
-import {map} from "rxjs/operators";
-import {animate, state, style, transition, trigger} from "@angular/animations";
-import {MatDialog} from "@angular/material/dialog";
-import {FhirAppointmentDetailModalComponent} from "../appointment-detail-modal/fhir-appointment-detail-modal.component";
+import {BehaviorSubject, Observable} from 'rxjs';
+import {LoadingService} from '../../../spinner/loading.service';
+import {map} from 'rxjs/operators';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {MatDialog} from '@angular/material/dialog';
+import {FhirAppointmentDetailModalComponent} from '../appointment-detail-modal/fhir-appointment-detail-modal.component';
 import Bundle = fhir.Bundle;
 import BundleLink = fhir.BundleLink;
 import Appointment = fhir.Appointment;
@@ -82,7 +82,7 @@ export class FhirAppointmentSearchComponent {
     this.fhir.getPage(this.previous, 'patient-service').subscribe(b => this.bundle.next(b));
   }
 
-  openDialog(resource: Appointment) {
+  openDialog(resource: Appointment): void {
     this.dialog.open(FhirAppointmentDetailModalComponent, {
       data: {appointment: resource},
       position: {right: '0'}

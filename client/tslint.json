@@ -1,5 +1,10 @@
 {
   "extends": "tslint:recommended",
+  "linterOptions": {
+    "exclude": [
+      "keycloak-js"
+    ]
+  },
   "rulesDirectory": [
     "codelyzer"
   ],
@@ -30,7 +35,7 @@
     "max-classes-per-file": false,
     "max-line-length": [
       true,
-      140
+      200
     ],
     "member-ordering": [
       true,
@@ -139,13 +144,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      ["app", "fut", "fhir"],
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      ["app", "fut", "fhir"],
       "kebab-case"
     ]
   }

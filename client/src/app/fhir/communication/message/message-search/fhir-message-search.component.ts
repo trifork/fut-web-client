@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FhirService} from '../../../fhir.service';
-import {animate, state, style, transition, trigger} from "@angular/animations";
-import {BehaviorSubject, Observable} from "rxjs";
-import {LoadingService} from "../../../../spinner/loading.service";
-import {map} from "rxjs/operators";
-import {FhirMessageDetailModalComponent} from "../message-detail-modal/fhir-message-detail-modal.component";
-import {MatDialog} from "@angular/material/dialog";
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {LoadingService} from '../../../../spinner/loading.service';
+import {map} from 'rxjs/operators';
+import {FhirMessageDetailModalComponent} from '../message-detail-modal/fhir-message-detail-modal.component';
+import {MatDialog} from '@angular/material/dialog';
 import Bundle = fhir.Bundle;
 import BundleLink = fhir.BundleLink;
 import Communication = fhir.Communication;
@@ -58,11 +58,11 @@ export class FhirMessageSearchComponent implements OnInit {
         .pipe(map(bundle => {
 
           if (!bundle) {
-            console.log("empty")
+            console.log('empty');
             return [];
           }
 
-          console.log("not empty")
+          console.log('not empty');
 
           const entries = bundle.entry;
           const rows = [];
@@ -73,7 +73,7 @@ export class FhirMessageSearchComponent implements OnInit {
                 com.id, com?.category[0]?.coding[0]?.code ?? '--',
                 com?.medium[0]?.coding[0]?.code,
                 com.sent, com?.sender?.reference, false, com
-              )
+              );
               rows.push(element);
             }
           );
@@ -89,7 +89,7 @@ export class FhirMessageSearchComponent implements OnInit {
     });
   }
 
-  openDialog(resource: Communication) {
+  openDialog(resource: Communication): void {
     this.dialog.open(FhirMessageDetailModalComponent, {
       data: {message: resource},
       position: {right: '0'}
