@@ -11,11 +11,15 @@ export class NotifyingErrorHandler implements ErrorHandler {
   handleError(error: any): void {
     let message = 'ERROR: ';
     if (error instanceof HttpErrorResponse) {
-      message += 'HTTP ' + error.status + ' ';
+      let httpError = 'HTTP ' + error.status + ' ';
       if (error.error.error) {
-        message += JSON.stringify(error.error.error);
+        httpError += JSON.stringify(error.error.error);
       } else {
-        message += error.statusText;
+        httpError += error.statusText;
+      }
+      message += httpError;
+      if (error.error.issue) {
+        message += ' \n' + JSON.stringify(error.error.issue);
       }
       message += ' \n' + error.url.replace(/^[a-z]{4,5}:\/{2}[a-z]{1,}:[0-9]{1,4}.(.*)/, '$1');
     } else {
