@@ -9,7 +9,7 @@
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef> Id</mat-header-cell>
         <mat-cell *matCellDef="let element" style="text-align: right">
-          <a mat-button [routerLink]="'/Appointment/' + element.id"> {{element.id}}</a>
+          <a [routerLink]="'/Appointment/' + element.id"> {{element.id}}</a>
         </mat-cell>
       </ng-container>
 
@@ -36,7 +36,7 @@
       <ng-container matColumnDef="details">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <button mat-button (click)="openDialog(element.resource)">Details</button>
+          <button mat-stroked-button (click)="openDialog(element.resource)">Details</button>
         </mat-cell>
       </ng-container>
 

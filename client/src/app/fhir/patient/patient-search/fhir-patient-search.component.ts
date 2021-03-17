@@ -9,6 +9,8 @@ import {FhirPatientDetailModalComponent} from "../patient-detail-modal/fhir-pati
 import Bundle = fhir.Bundle;
 import Patient = fhir.Patient;
 import BundleLink = fhir.BundleLink;
+import {UserService} from '../../../user/user.service';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'fhir-patient-search',
@@ -35,7 +37,7 @@ export class FhirPatientSearchComponent {
 
   isExpansionDetailRow = (i: number, row: object) => row.hasOwnProperty('detailRow');
 
-  constructor(private fhir: FhirService, public loadingService: LoadingService,  public dialog: MatDialog) {
+  constructor(private fhir: FhirService, public loadingService: LoadingService, public dialog: MatDialog, public userService: UserService) {
   }
 
   private static toPatientRow(patient: fhir.Patient): PatientRow {
@@ -55,7 +57,9 @@ export class FhirPatientSearchComponent {
     );
   }
 
-
+  addPatientToContext(pat: PatientRow): void {
+    this.userService.addPatientToContext('https://patient.' + environment.baseUrl + '/fhir/Patient/' + pat.id);
+  }
 
   search(): void {
     this.fhir.searchPatients().subscribe(bundle => this.bundle.next(bundle));

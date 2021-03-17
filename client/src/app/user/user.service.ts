@@ -129,11 +129,13 @@ export class UserService {
   }
 
   addPatientToContext(patient: string): void {
+    // console.info('addPatientToContext ', patient);
     const ctx = this.currentContext.getValue();
     this.setContext(ctx?.organization, ctx?.careTeam, patient);
   }
 
-  addEpisodeOfCareToContext(eoc: string) {
+  addEpisodeOfCareToContext(eoc: string): void {
+    // console.info('addEpisodeOfCareToContext ', eoc);
     const ctx = this.currentContext.getValue();
     this.setContext(ctx?.organization, ctx?.careTeam, null, eoc);
   }

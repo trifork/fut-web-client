@@ -1048,7 +1048,7 @@
      *  Modification added to support eHealth security model
      */
     kc.setContext = function (org, ct, patient, eoc) {
-      console.log("setting context");
+      console.log("setting context org=%s, ct=%s, pat=%s, eoc=%s ", org, ct, patient, eoc);
       kc.careTeam = ct
       kc.organization = org
       kc.patient = patient
