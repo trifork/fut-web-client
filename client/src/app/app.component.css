@@ -13,6 +13,12 @@
   bottom: 0;
 }
 
+.app-version {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
 .app-route.app-route-active {
   color: rgba(0, 100, 254, 1);
   background: rgba(242, 247, 255, 1);
