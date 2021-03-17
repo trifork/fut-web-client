@@ -17,7 +17,7 @@ export class NotifyingErrorHandler implements ErrorHandler {
       } else {
         message += error.statusText;
       }
-      message += ' \n' + '/' + error.url.replace(/^[a-z]{4,5}:\/{2}[a-z]{1,}:[0-9]{1,4}.(.*)/, '$1');
+      message += ' \n' + error.url.replace(/^[a-z]{4,5}:\/{2}[a-z]{1,}:[0-9]{1,4}.(.*)/, '$1');
     } else {
       message += JSON.stringify(error);
     }
