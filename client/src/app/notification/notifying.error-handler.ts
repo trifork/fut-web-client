@@ -13,13 +13,13 @@ export class NotifyingErrorHandler implements ErrorHandler {
     let message = 'ERROR: ';
     if (error instanceof HttpErrorResponse) {
       let httpError = 'HTTP ' + error.status + ' ';
-      if (error.error.error) {
+      if (error.error?.error) {
         httpError += JSON.stringify(CYCLE_JS.decycle((error.error.error)));
       } else {
         httpError += error.statusText;
       }
       message += httpError;
-      if (error.error.issue) {
+      if (error.error?.issue) {
         message += ' \n' + JSON.stringify(CYCLE_JS.decycle(error.error.issue));
       }
       message += ' \n' + error.url.replace(/^[a-z]{4,5}:\/{2}[a-z]{1,}:[0-9]{1,4}.(.*)/, '$1');
