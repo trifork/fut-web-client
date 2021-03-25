@@ -16,5 +16,11 @@
     "secure": true,
     "changeOrigin": true,
     "pathRewrite": {"^/organization-service" : ""}
+  },
+  "/task-service": {
+    "target": "https://task.fut.trifork.com",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {"^/task-service" : ""}
   }
 }

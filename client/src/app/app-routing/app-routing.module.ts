@@ -13,6 +13,8 @@ import {FhirAppointmentPageComponent} from '../fhir/appointment/appointment-page
 import {FhirMessagePageComponent} from '../fhir/communication/message/message-page/fhir-message-page.component';
 import {FhirEpisodeOfCarePageComponent} from '../fhir/episode-of-care/episode-of-care-page/fhir-episode-of-care-page.component';
 import {UserProfileComponent} from '../user/user-profile/user-profile.component';
+import {TaskSearchComponent} from "../fhir/task/task-search/task-search.component";
+import {TaskPageComponent} from "../fhir/task/task-page/task-page.component";
 
 const routes: Routes = [
   {path: '', component: UserProfileComponent},
@@ -27,7 +29,9 @@ const routes: Routes = [
   {path: 'Message', component: FhirMessageSearchComponent},
   {path: 'Message/:id', component: FhirMessagePageComponent},
   {path: 'Appointment', component: FhirAppointmentSearchComponent},
-  {path: 'Appointment/:id', component: FhirAppointmentPageComponent}
+  {path: 'Appointment/:id', component: FhirAppointmentPageComponent},
+  {path: 'Task', component: TaskSearchComponent},
+  {path: 'Task/:id', component: TaskPageComponent}
 ];
 
 @NgModule({

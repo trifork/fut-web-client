@@ -23,3 +23,4 @@ COPY nginx/default.conf.template /etc/nginx/templates/default.conf.template
 ENV CAREPLAN_API https://careplan.fut.trifork.com
 ENV PATIENT_API https://patient.fut.trifork.com
 ENV ORGANIZATION_API https://organization.fut.trifork.com
+ENV TASK_API https://task.fut.trifork.com

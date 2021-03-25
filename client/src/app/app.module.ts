@@ -61,7 +61,11 @@ import {FhirOrganizationDetailComponent} from './fhir/organization/organization-
 import {FhirCareTeamDetailComponent} from './fhir/care-team/care-team-detail/fhir-care-team-detail.component';
 import {FhirCareTeamDetailModalComponent} from './fhir/care-team/care-team-detail-modal/fhir-care-team-detail-modal.component';
 import {FhirMessageDetailModalComponent} from './fhir/communication/message/message-detail-modal/fhir-message-detail-modal.component';
-import {MatGridListModule} from '@angular/material/grid-list';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {TaskSearchComponent} from "./fhir/task/task-search/task-search.component";
+import {TaskDetailComponent} from "./fhir/task/task-detail/task-detail.component";
+import {TaskDetailModalComponent} from "./fhir/task/task-detail-modal/task-detail-modal.component";
+import {TaskPageComponent} from "./fhir/task/task-page/task-page.component";
 
 
 function initializeKeycloak(keycloak: KeycloakService): () => Promise<boolean> {
@@ -113,7 +117,11 @@ function initializeKeycloak(keycloak: KeycloakService): () => Promise<boolean> {
     FhirOrganizationDetailComponent,
     FhirCareTeamDetailComponent,
     FhirCareTeamDetailModalComponent,
-    FhirMessageDetailModalComponent
+    FhirMessageDetailModalComponent,
+    TaskSearchComponent,
+    TaskDetailComponent,
+    TaskDetailModalComponent,
+    TaskPageComponent
   ],
   imports: [
     BrowserModule,

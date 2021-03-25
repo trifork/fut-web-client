@@ -1,0 +1,58 @@
+<div class="search-page">
+  <h1 class="page-title">Task</h1>
+
+  <button class="search-btn" mat-raised-button color="primary" (click)="search()"> Search </button>
+  <mat-spinner style="display: inline-flex" diameter="17" *ngIf="loadingService.isLoading$ | async"></mat-spinner>
+  <div class="table-container" *ngIf="rows$">
+    <mat-table [dataSource]="rows$ | async">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let element" >
+          <a matTooltip="Fetch resource" [routerLink]="'/Task/' + element.id"> {{element.id}}</a>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="intent">
+        <mat-header-cell *matHeaderCellDef> Intent </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{element.intent}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="priority">
+        <mat-header-cell *matHeaderCellDef> Priority </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.priority}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="context">
+        <mat-header-cell *matHeaderCellDef> Context </mat-header-cell>
+        <mat-cell *matCellDef="let element" >
+          <a matTooltip="Fetch resource" [routerLink]="'/' + element.context"> {{element.context}}</a>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-stroked-button (click)="openDialog(element.resource)">Details</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" class="element-row"></mat-row>
+    </mat-table>
+  </div>
+  <div *ngIf="next || previous" class="search-nav">
+    <button mat-raised-button color="primary" [disabled]="!previous" (click)="loadPrevious()">
+      <mat-icon>navigate_before</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" [disabled]="!next" (click)="loadNext()">
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+  </div>
+</div>

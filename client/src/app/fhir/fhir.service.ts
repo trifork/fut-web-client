@@ -10,6 +10,7 @@ import Communication = fhir.Communication;
 import EpisodeOfCare = fhir.EpisodeOfCare;
 import Organization = fhir.Organization;
 import CareTeam = fhir.CareTeam;
+import Task = fhir.Task;
 
 @Injectable({
   providedIn: 'root'
@@ -157,5 +158,27 @@ export class FhirService {
       {
         observe: 'body'
       });
+  }
+
+  public readTask(id: string): Observable<Task> {
+    return this.http.get<Task>(
+      BaseUrl.get() + '/task-service/fhir/Task/' + id,
+      {
+        responseType: 'json',
+        observe: 'body'
+      });
+  }
+
+  public searchTask(team: string): Observable<Bundle> {
+    const params = (team != null ? new HttpParams().set('responsible', team) : new HttpParams())
+      .set('_count', '15');
+
+    return this.http.get<Bundle>(BaseUrl.get() + '/task-service/fhir/Task',
+      {
+        params,
+        responseType: 'json',
+        observe: 'body'
+      }
+    );
   }
 }
