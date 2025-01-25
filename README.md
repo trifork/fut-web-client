@@ -5,7 +5,7 @@ The platform offers single sign-on, and a secured HL7 FHIR API that the hosted a
 See 
 - Project description: https://digst.dk/digital-service/digital-velfaerd/telemedicin-kol/faelles-udbud-af-telemedicin-fut
 - Infrastructure docs: https://ehealth-dk.atlassian.net/wiki/spaces/EDTW/overview
-- API docs: https://docs.ehealth.sundhed.dk/latest/ig/index.html
+- API docs: https://build.fhir.org/ig/fut-infrastructure/implementation-guide/
 
 # FUT Web Client
 The FUT web client demonstrates ways to interact with FUT services and is not for direct clinical or administrative use.  
