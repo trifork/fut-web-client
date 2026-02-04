@@ -11,16 +11,17 @@ import Organization = fhir.Organization;
 import BundleLink = fhir.BundleLink;
 
 @Component({
-  selector: 'fhir-organization-search',
-  templateUrl: './fhir-organization-search.component.html',
-  styleUrls: ['./fhir-organization-search.component.css'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0', visibility: 'hidden'})),
-      state('expanded', style({height: '*', visibility: 'visible'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ]
+    selector: 'fhir-organization-search',
+    templateUrl: './fhir-organization-search.component.html',
+    styleUrls: ['./fhir-organization-search.component.css'],
+    animations: [
+        trigger('detailExpand', [
+            state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+            state('expanded', style({ height: '*', visibility: 'visible' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+        ]),
+    ],
+    standalone: false
 })
 export class FhirOrganizationSearchComponent implements OnInit {
 

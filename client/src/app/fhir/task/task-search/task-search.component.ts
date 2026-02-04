@@ -12,9 +12,10 @@ import BundleLink = fhir.BundleLink;
 import {IdType} from "../../id-type";
 
 @Component({
-  selector: 'app-task-search',
-  templateUrl: './task-search.component.html',
-  styleUrls: ['./task-search.component.css']
+    selector: 'app-task-search',
+    templateUrl: './task-search.component.html',
+    styleUrls: ['./task-search.component.css'],
+    standalone: false
 })
 export class TaskSearchComponent implements OnInit {
 

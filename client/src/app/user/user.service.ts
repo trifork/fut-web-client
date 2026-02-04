@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {KeycloakService} from 'keycloak-angular';
 import {KeycloakInstance} from 'keycloak-js';
 import {AvailableContext} from './model/available-context';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {EHealthContext} from './model/ehealth-context';
 import {UserProfile} from './model/user-profile';
 import {BehaviorSubject} from 'rxjs';
@@ -35,7 +35,7 @@ export class UserService {
     this.setUserProfile();
   }
 
-  public isLoggedIn(): Promise<boolean> {
+  public isLoggedIn(): boolean {
     return this.keycloakService.isLoggedIn();
   }
 
@@ -55,16 +55,16 @@ export class UserService {
       });
   }
 
-  public async setContext(organization: string, careTeam: string, patient?: string, episodeOfCare?: string): Promise<void> {
-    if (await this.isLoggedIn()) {
+  public setContext(organization: string, careTeam: string, patient?: string, episodeOfCare?: string): void {
+    if (this.isLoggedIn()) {
       this.keycloakInstance.setContext(organization, careTeam, patient, episodeOfCare);
       this.keycloakInstance.updateToken(-1)
         .then(() => this.update());
     }
   }
 
-  async setCurrentContext(): Promise<void> {
-    if (!(await this.isLoggedIn())) {
+  setCurrentContext(): void {
+    if (!this.isLoggedIn()) {
       this.currentContext.next(null);
       this.store.removeItem('ctx');
       return;
@@ -86,8 +86,8 @@ export class UserService {
     }
   }
 
-  async setUserProfile(): Promise<void> {
-    if (!(await this.isLoggedIn())) {
+  setUserProfile(): void {
+    if (!this.isLoggedIn()) {
       this.userProfile.next(null);
       return;
     }

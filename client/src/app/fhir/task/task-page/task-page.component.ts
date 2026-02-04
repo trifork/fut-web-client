@@ -5,9 +5,10 @@ import {map, switchMap} from "rxjs/operators";
 import Task = fhir.Task;
 
 @Component({
-  selector: 'app-task-page',
-  templateUrl: './task-page.component.html',
-  styleUrls: ['./task-page.component.css']
+    selector: 'app-task-page',
+    templateUrl: './task-page.component.html',
+    styleUrls: ['./task-page.component.css'],
+    standalone: false
 })
 export class TaskPageComponent implements OnInit {
 

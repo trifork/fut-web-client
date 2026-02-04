@@ -3,9 +3,10 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import Organization = fhir.Organization;
 
 @Component({
-  selector: 'fhir-organization-detail-modal',
-  templateUrl: './fhir-organization-detail-modal.component.html',
-  styleUrls: ['./fhir-organization-detail-modal.component.css']
+    selector: 'fhir-organization-detail-modal',
+    templateUrl: './fhir-organization-detail-modal.component.html',
+    styleUrls: ['./fhir-organization-detail-modal.component.css'],
+    standalone: false
 })
 export class FhirOrganizationDetailModalComponent implements OnInit {
 

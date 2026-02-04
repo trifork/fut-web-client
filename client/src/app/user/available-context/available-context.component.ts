@@ -3,9 +3,10 @@ import {UserService} from '../user.service';
 import {AvailableContext} from '../model/available-context';
 
 @Component({
-  selector: 'fut-available-context',
-  templateUrl: './available-context.component.html',
-  styleUrls: ['./available-context.component.css']
+    selector: 'fut-available-context',
+    templateUrl: './available-context.component.html',
+    styleUrls: ['./available-context.component.css'],
+    standalone: false
 })
 export class AvailableContextComponent implements OnInit {
 

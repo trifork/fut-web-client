@@ -1,1 +1,3 @@
-<fhir-coding *ngFor="let coding of codeableConcept.coding" [coding]="coding"></fhir-coding>
+@for (coding of codeableConcept.coding; track coding) {
+  <fhir-coding [coding]="coding"></fhir-coding>
+}

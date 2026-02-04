@@ -1,5 +1,5 @@
 import {ErrorHandler, Injectable, NgZone} from '@angular/core';
-import {HttpErrorResponse} from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import {NotificationService} from './notification.service';
 import * as CYCLE_JS from 'cycle/cycle';
 

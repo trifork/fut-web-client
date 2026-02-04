@@ -3,9 +3,10 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import Patient = fhir.Patient;
 
 @Component({
-  selector: 'fhir-patient-detail-modal',
-  templateUrl: './fhir-patient-detail-modal.component.html',
-  styleUrls: ['./fhir-patient-detail-modal.component.css']
+    selector: 'fhir-patient-detail-modal',
+    templateUrl: './fhir-patient-detail-modal.component.html',
+    styleUrls: ['./fhir-patient-detail-modal.component.css'],
+    standalone: false
 })
 export class FhirPatientDetailModalComponent implements OnInit {
 

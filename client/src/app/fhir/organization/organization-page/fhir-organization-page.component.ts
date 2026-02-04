@@ -5,9 +5,10 @@ import {map, switchMap} from 'rxjs/operators';
 import Organization = fhir.Organization;
 
 @Component({
-  selector: 'fhir-organization',
-  templateUrl: './fhir-organization-page.component.html',
-  styleUrls: ['./fhir-organization-page.component.css']
+    selector: 'fhir-organization',
+    templateUrl: './fhir-organization-page.component.html',
+    styleUrls: ['./fhir-organization-page.component.css'],
+    standalone: false
 })
 export class FhirOrganizationPageComponent implements OnInit {
 

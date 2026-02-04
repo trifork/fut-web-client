@@ -3,9 +3,10 @@ import Organization = fhir.Organization;
 import CodeableConcept = fhir.CodeableConcept;
 
 @Component({
-  selector: 'fhir-organization-detail',
-  templateUrl: './fhir-organization-detail.component.html',
-  styleUrls: ['./fhir-organization-detail.component.css']
+    selector: 'fhir-organization-detail',
+    templateUrl: './fhir-organization-detail.component.html',
+    styleUrls: ['./fhir-organization-detail.component.css'],
+    standalone: false
 })
 export class FhirOrganizationDetailComponent implements OnInit {
 

@@ -1,44 +1,54 @@
-<div *ngIf="availableContext" class="fut-available-contexts">
-  <mat-card class="available-context-card" *ngFor="let team of availableContext.care_teams">
-    <mat-card-header>
-      <div mat-card-avatar>
-        <mat-icon>groups</mat-icon>
-      </div>
-      <mat-card-title>{{team.name}}</mat-card-title>
-      <mat-card-subtitle>Care Team</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <h3><mat-icon>business</mat-icon> Affiliation</h3>
-      <p>{{team.affiliation.name}}</p>
-      <h3>Roles</h3>
-      <ul>
-        <li *ngFor="let role of team.roles">
-          <p>{{role}}</p>
-        </li>
-      </ul>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-stroked-button color="accent" (click)="userService.setContext(team.affiliation.id, team.id)">Select</button>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card class="available-context-card" *ngFor="let organization of availableContext.organizations">
-    <mat-card-header>
-      <div mat-card-avatar>
-        <mat-icon>business</mat-icon>
-      </div>
-      <mat-card-title>{{organization.name}}</mat-card-title>
-      <mat-card-subtitle>Organization</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <h3>Roles</h3>
-      <ul>
-        <li *ngFor="let role of organization.roles">
-          <p>{{role}}</p>
-        </li>
-      </ul>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-stroked-button color="accent" (click)="userService.setContext(organization.id, null)">Select</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+@if (availableContext) {
+  <div class="fut-available-contexts">
+    @for (team of availableContext.care_teams; track team) {
+      <mat-card class="available-context-card">
+        <mat-card-header>
+          <div mat-card-avatar>
+            <mat-icon>groups</mat-icon>
+          </div>
+          <mat-card-title>{{team.name}}</mat-card-title>
+          <mat-card-subtitle>Care Team</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <h3><mat-icon>business</mat-icon> Affiliation</h3>
+          <p>{{team.affiliation.name}}</p>
+          <h3>Roles</h3>
+          <ul>
+            @for (role of team.roles; track role) {
+              <li>
+                <p>{{role}}</p>
+              </li>
+            }
+          </ul>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-stroked-button color="accent" (click)="userService.setContext(team.affiliation.id, team.id)">Select</button>
+        </mat-card-actions>
+      </mat-card>
+    }
+    @for (organization of availableContext.organizations; track organization) {
+      <mat-card class="available-context-card">
+        <mat-card-header>
+          <div mat-card-avatar>
+            <mat-icon>business</mat-icon>
+          </div>
+          <mat-card-title>{{organization.name}}</mat-card-title>
+          <mat-card-subtitle>Organization</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <h3>Roles</h3>
+          <ul>
+            @for (role of organization.roles; track role) {
+              <li>
+                <p>{{role}}</p>
+              </li>
+            }
+          </ul>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-stroked-button color="accent" (click)="userService.setContext(organization.id, null)">Select</button>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </div>
+}

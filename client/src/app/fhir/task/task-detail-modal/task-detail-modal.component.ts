@@ -1,11 +1,12 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import Task = fhir.Task;
 
 @Component({
-  selector: 'app-task-detail-modal',
-  templateUrl: './task-detail-modal.component.html',
-  styleUrls: ['./task-detail-modal.component.css']
+    selector: 'app-task-detail-modal',
+    templateUrl: './task-detail-modal.component.html',
+    styleUrls: ['./task-detail-modal.component.css'],
+    standalone: false
 })
 export class TaskDetailModalComponent implements OnInit {
 

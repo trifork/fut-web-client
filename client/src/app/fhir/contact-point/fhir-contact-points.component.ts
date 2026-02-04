@@ -2,9 +2,10 @@ import {Component, OnInit, Input} from '@angular/core';
 import ContactPoint = fhir.ContactPoint;
 
 @Component({
-  selector: 'fhir-contact-points',
-  templateUrl: './fhir-contact-points.component.html',
-  styleUrls: ['./fhir-contact-points.component.css']
+    selector: 'fhir-contact-points',
+    templateUrl: './fhir-contact-points.component.html',
+    styleUrls: ['./fhir-contact-points.component.css'],
+    standalone: false
 })
 export class FhirContactPointsComponent implements OnInit {
 

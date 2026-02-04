@@ -1,40 +1,58 @@
-<div class="nav-links" style="width: 50%" *ngIf="episodeOfCare">
-  <h3>Links</h3>
-  <mat-list>
-    <div mat-subheader *ngIf="patient">Patient</div>
-    <mat-list-item *ngIf="patient">
-      <a mat-raised-button
-         [routerLink]="patient.getUnqualifiedVersionLess()" routerLinkActive="active">
-        <mat-icon>person</mat-icon>
-        {{patient.getUnqualifiedVersionLess()}}
-      </a>
-    </mat-list-item>
-    <div mat-subheader *ngIf="teams">Teams</div>
-    <mat-list-item *ngFor="let team of teams">
-      <a mat-raised-button
-         [routerLink]="team.getUnqualifiedVersionLess()" routerLinkActive="active">
-        <mat-icon>groups</mat-icon>
-        {{team.getUnqualifiedVersionLess()}}
-      </a>
-    </mat-list-item>
-    <div mat-subheader *ngIf="managingOrganization">Managing Organization</div>
-    <mat-list-item *ngIf="managingOrganization">
-      <a mat-raised-button
-         [routerLink]="managingOrganization.getUnqualifiedVersionLess()" routerLinkActive="active">
-        <mat-icon>business</mat-icon>
-        {{managingOrganization.getUnqualifiedVersionLess()}}
-      </a>
-    </mat-list-item>
-    <div mat-subheader *ngIf="careManagerOrganization">Care Manager Organization</div>
-    <mat-list-item *ngIf="careManagerOrganization">
-      <a mat-raised-button
-         [routerLink]="careManagerOrganization.getUnqualifiedVersionLess()" routerLinkActive="active">
-        <mat-icon>business</mat-icon>
-        {{careManagerOrganization.getUnqualifiedVersionLess()}}
-      </a>
-    </mat-list-item>
-  </mat-list>
-</div>
+@if (episodeOfCare) {
+  <div class="nav-links" style="width: 50%">
+    <h3>Links</h3>
+    <mat-list>
+      @if (patient) {
+        <div mat-subheader>Patient</div>
+      }
+      @if (patient) {
+        <mat-list-item>
+          <a mat-raised-button
+            [routerLink]="patient.getUnqualifiedVersionLess()" routerLinkActive="active">
+            <mat-icon>person</mat-icon>
+            {{patient.getUnqualifiedVersionLess()}}
+          </a>
+        </mat-list-item>
+      }
+      @if (teams) {
+        <div mat-subheader>Teams</div>
+      }
+      @for (team of teams; track team) {
+        <mat-list-item>
+          <a mat-raised-button
+            [routerLink]="team.getUnqualifiedVersionLess()" routerLinkActive="active">
+            <mat-icon>groups</mat-icon>
+            {{team.getUnqualifiedVersionLess()}}
+          </a>
+        </mat-list-item>
+      }
+      @if (managingOrganization) {
+        <div mat-subheader>Managing Organization</div>
+      }
+      @if (managingOrganization) {
+        <mat-list-item>
+          <a mat-raised-button
+            [routerLink]="managingOrganization.getUnqualifiedVersionLess()" routerLinkActive="active">
+            <mat-icon>business</mat-icon>
+            {{managingOrganization.getUnqualifiedVersionLess()}}
+          </a>
+        </mat-list-item>
+      }
+      @if (careManagerOrganization) {
+        <div mat-subheader>Care Manager Organization</div>
+      }
+      @if (careManagerOrganization) {
+        <mat-list-item>
+          <a mat-raised-button
+            [routerLink]="careManagerOrganization.getUnqualifiedVersionLess()" routerLinkActive="active">
+            <mat-icon>business</mat-icon>
+            {{careManagerOrganization.getUnqualifiedVersionLess()}}
+          </a>
+        </mat-list-item>
+      }
+    </mat-list>
+  </div>
+}
 
 
 <ngx-json-viewer [json]="episodeOfCare"></ngx-json-viewer>

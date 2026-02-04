@@ -1,19 +1,21 @@
-<div *ngIf="userProfile">
-
-  <mat-expansion-panel style="border-radius: 0;" *ngIf="userProfile.roles.length > 0">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Privileges
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-list>
-      <mat-list-item *ngFor="let role of userProfile.roles.sort()">
-        <div mat-line> {{role}} </div>
-      </mat-list-item>
-    </mat-list>
-
-  </mat-expansion-panel>
-
-  <fut-available-context [availableContext]="userService.availableContext$ | async"></fut-available-context>
-
-</div>
+@if (userProfile) {
+  <div>
+    @if (userProfile.roles.length > 0) {
+      <mat-expansion-panel style="border-radius: 0;">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Privileges
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+          @for (role of userProfile.roles.sort(); track role) {
+            <mat-list-item>
+              <div mat-line> {{role}} </div>
+            </mat-list-item>
+          }
+        </mat-list>
+      </mat-expansion-panel>
+    }
+    <fut-available-context [availableContext]="userService.availableContext$ | async"></fut-available-context>
+  </div>
+}

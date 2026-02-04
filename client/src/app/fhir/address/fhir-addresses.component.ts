@@ -2,9 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import Address = fhir.Address;
 
 @Component({
-  selector: 'fhir-addresses',
-  templateUrl: './fhir-addresses.component.html',
-  styleUrls: ['./fhir-addresses.component.css']
+    selector: 'fhir-addresses',
+    templateUrl: './fhir-addresses.component.html',
+    styleUrls: ['./fhir-addresses.component.css'],
+    standalone: false
 })
 export class FhirAddressesComponent implements OnInit {
 

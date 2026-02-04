@@ -14,16 +14,17 @@ import BundleLink = fhir.BundleLink;
 import EpisodeOfCare = fhir.EpisodeOfCare;
 
 @Component({
-  selector: 'fhir-episode-of-care-search',
-  templateUrl: './fhir-episode-of-care-search.component.html',
-  styleUrls: ['./fhir-episode-of-care-search.component.css'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0', visibility: 'hidden'})),
-      state('expanded', style({height: '*', visibility: 'visible'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ]
+    selector: 'fhir-episode-of-care-search',
+    templateUrl: './fhir-episode-of-care-search.component.html',
+    styleUrls: ['./fhir-episode-of-care-search.component.css'],
+    animations: [
+        trigger('detailExpand', [
+            state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+            state('expanded', style({ height: '*', visibility: 'visible' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+        ]),
+    ],
+    standalone: false
 })
 export class FhirEpisodeOfCareSearchComponent implements OnInit {
 

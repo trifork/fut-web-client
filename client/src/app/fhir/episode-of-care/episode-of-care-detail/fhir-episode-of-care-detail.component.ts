@@ -4,9 +4,10 @@ import {IdType} from '../../id-type';
 import Reference = fhir.Reference;
 
 @Component({
-  selector: 'fhir-episode-of-care-detail',
-  templateUrl: './fhir-episode-of-care-detail.component.html',
-  styleUrls: ['./fhir-episode-of-care-detail.component.css']
+    selector: 'fhir-episode-of-care-detail',
+    templateUrl: './fhir-episode-of-care-detail.component.html',
+    styleUrls: ['./fhir-episode-of-care-detail.component.css'],
+    standalone: false
 })
 export class FhirEpisodeOfCareDetailComponent implements OnInit {
 

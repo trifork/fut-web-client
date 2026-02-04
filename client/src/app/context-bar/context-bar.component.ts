@@ -4,9 +4,10 @@ import {IdType} from '../fhir/id-type';
 import {EHealthContext} from '../user/model/ehealth-context';
 
 @Component({
-  selector: 'app-context-bar',
-  templateUrl: './context-bar.component.html',
-  styleUrls: ['./context-bar.component.css']
+    selector: 'app-context-bar',
+    templateUrl: './context-bar.component.html',
+    styleUrls: ['./context-bar.component.css'],
+    standalone: false
 })
 export class ContextBarComponent implements OnInit {
   trim = IdType.trim;

@@ -5,9 +5,10 @@ import {ActivatedRoute} from '@angular/router';
 import {map, switchMap} from 'rxjs/operators';
 
 @Component({
-  selector: 'fhir-episode-of-care-page',
-  templateUrl: './fhir-episode-of-care-page.component.html',
-  styleUrls: ['./fhir-episode-of-care-page.component.css']
+    selector: 'fhir-episode-of-care-page',
+    templateUrl: './fhir-episode-of-care-page.component.html',
+    styleUrls: ['./fhir-episode-of-care-page.component.css'],
+    standalone: false
 })
 export class FhirEpisodeOfCarePageComponent implements OnInit {
 

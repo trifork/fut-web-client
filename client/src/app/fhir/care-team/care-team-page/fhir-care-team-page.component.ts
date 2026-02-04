@@ -5,9 +5,10 @@ import {map, switchMap} from 'rxjs/operators';
 import CareTeam = fhir.CareTeam;
 
 @Component({
-  selector: 'fhir-care-team-page',
-  templateUrl: './fhir-care-team-page.component.html',
-  styleUrls: ['./fhir-care-team-page.component.css']
+    selector: 'fhir-care-team-page',
+    templateUrl: './fhir-care-team-page.component.html',
+    styleUrls: ['./fhir-care-team-page.component.css'],
+    standalone: false
 })
 export class FhirCareTeamPageComponent implements OnInit {
 

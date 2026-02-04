@@ -4,9 +4,10 @@ import {UserProfile} from '../model/user-profile';
 import {IdType} from '../../fhir/id-type';
 
 @Component({
-  selector: 'fut-user-control',
-  templateUrl: './user-control.component.html',
-  styleUrls: ['./user-control.component.css']
+    selector: 'fut-user-control',
+    templateUrl: './user-control.component.html',
+    styleUrls: ['./user-control.component.css'],
+    standalone: false
 })
 export class UserControlComponent implements OnInit {
   trim = IdType.trim;
@@ -16,8 +17,8 @@ export class UserControlComponent implements OnInit {
   constructor(public readonly userService: UserService) {
   }
 
-  async ngOnInit(): Promise<void> {
-    this.userService.isLoggedIn().then(v => this.isLoggedIn = v);
+  ngOnInit(): void {
+    this.isLoggedIn = this.userService.isLoggedIn();
     this.userService.userProfile$.subscribe(value => this.userProfile = value);
   }
 }

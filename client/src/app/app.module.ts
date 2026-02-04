@@ -1,6 +1,6 @@
 import {environment} from '../environments/environment';
 import {APP_INITIALIZER, ErrorHandler, NgModule} from '@angular/core';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -81,91 +81,86 @@ function initializeKeycloak(keycloak: KeycloakService): () => Promise<boolean> {
   });
 }
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    AvailableContextComponent,
-    UserProfileComponent,
-    FhirOrganizationPageComponent,
-    UserControlComponent,
-    FhirAddressesComponent,
-    FhirIdentifiersComponent,
-    FhirContactPointsComponent,
-    FhirCodingComponent,
-    FhirCodeableConeptComponent,
-    FhirCareTeamPageComponent,
-    FhirPatientSearchComponent,
-    FhirEpisodeOfCareSearchComponent,
-    FhirPatientFullComponent,
-    FhirPatientPageComponent,
-    FhirMessageSearchComponent,
-    FhirAppointmentSearchComponent,
-    FhirOrganizationSearchComponent,
-    FhirCareTeamSearchComponent,
-    FhirPatientDetailComponent,
-    FhirAppointmentDetailComponent,
-    FhirAppointmentDetailModalComponent,
-    ContextBarComponent,
-    FhirAppointmentPageComponent,
-    FhirMessagePageComponent,
-    FhirMessageDetailComponent,
-    FhirEpisodeOfCareDetailComponent,
-    FhirEpisodeOfCarePageComponent,
-    FhirEpisodeOfCareDetailModalComponent,
-    FhirPatientDetailModalComponent,
-    FhirOrganizationDetailModalComponent,
-    FhirOrganizationDetailComponent,
-    FhirCareTeamDetailComponent,
-    FhirCareTeamDetailModalComponent,
-    FhirMessageDetailModalComponent,
-    TaskSearchComponent,
-    TaskDetailComponent,
-    TaskDetailModalComponent,
-    TaskPageComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatListModule,
-    MatExpansionModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatTableModule,
-    MatSnackBarModule,
-    MatProgressBarModule,
-    MatFormFieldModule,
-    MatProgressSpinnerModule,
-    MatGridListModule,
-    KeycloakAngularModule,
-    HttpClientModule,
-    AppRoutingModule,
-    NgxJsonViewerModule,
-    MatFormFieldModule,
-    MatTooltipModule,
-    MatDialogModule
-  ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeKeycloak,
-      multi: true,
-      deps: [KeycloakService]
-    },
-    {provide: NotificationService, useClass: NotificationService},
-    {provide: LoadingService, useClass: LoadingService},
-    {provide: ErrorHandler, useClass: NotifyingErrorHandler},
-    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: NoCacheInterceptor,
-    //   multi: true
-    // }
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        AvailableContextComponent,
+        UserProfileComponent,
+        FhirOrganizationPageComponent,
+        UserControlComponent,
+        FhirAddressesComponent,
+        FhirIdentifiersComponent,
+        FhirContactPointsComponent,
+        FhirCodingComponent,
+        FhirCodeableConeptComponent,
+        FhirCareTeamPageComponent,
+        FhirPatientSearchComponent,
+        FhirEpisodeOfCareSearchComponent,
+        FhirPatientFullComponent,
+        FhirPatientPageComponent,
+        FhirMessageSearchComponent,
+        FhirAppointmentSearchComponent,
+        FhirOrganizationSearchComponent,
+        FhirCareTeamSearchComponent,
+        FhirPatientDetailComponent,
+        FhirAppointmentDetailComponent,
+        FhirAppointmentDetailModalComponent,
+        ContextBarComponent,
+        FhirAppointmentPageComponent,
+        FhirMessagePageComponent,
+        FhirMessageDetailComponent,
+        FhirEpisodeOfCareDetailComponent,
+        FhirEpisodeOfCarePageComponent,
+        FhirEpisodeOfCareDetailModalComponent,
+        FhirPatientDetailModalComponent,
+        FhirOrganizationDetailModalComponent,
+        FhirOrganizationDetailComponent,
+        FhirCareTeamDetailComponent,
+        FhirCareTeamDetailModalComponent,
+        FhirMessageDetailModalComponent,
+        TaskSearchComponent,
+        TaskDetailComponent,
+        TaskDetailModalComponent,
+        TaskPageComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        BrowserAnimationsModule,
+        MatSliderModule,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatListModule,
+        MatExpansionModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatTableModule,
+        MatSnackBarModule,
+        MatProgressBarModule,
+        MatFormFieldModule,
+        MatProgressSpinnerModule,
+        MatGridListModule,
+        KeycloakAngularModule,
+        AppRoutingModule,
+        NgxJsonViewerModule,
+        MatFormFieldModule,
+        MatTooltipModule,
+        MatDialogModule], providers: [
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initializeKeycloak,
+            multi: true,
+            deps: [KeycloakService]
+        },
+        { provide: NotificationService, useClass: NotificationService },
+        { provide: LoadingService, useClass: LoadingService },
+        { provide: ErrorHandler, useClass: NotifyingErrorHandler },
+        { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+        // {
+        //   provide: HTTP_INTERCEPTORS,
+        //   useClass: NoCacheInterceptor,
+        //   multi: true
+        // }
+        ,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule {
 }

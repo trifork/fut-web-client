@@ -11,16 +11,17 @@ import BundleLink = fhir.BundleLink;
 import CareTeam = fhir.CareTeam;
 
 @Component({
-  selector: 'fhir-care-team-search',
-  templateUrl: './fhir-care-team-search.component.html',
-  styleUrls: ['./fhir-care-team-search.component.css'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0', visibility: 'hidden'})),
-      state('expanded', style({height: '*', visibility: 'visible'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ]
+    selector: 'fhir-care-team-search',
+    templateUrl: './fhir-care-team-search.component.html',
+    styleUrls: ['./fhir-care-team-search.component.css'],
+    animations: [
+        trigger('detailExpand', [
+            state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+            state('expanded', style({ height: '*', visibility: 'visible' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+        ]),
+    ],
+    standalone: false
 })
 export class FhirCareTeamSearchComponent implements OnInit {
 

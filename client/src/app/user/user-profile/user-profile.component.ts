@@ -6,9 +6,10 @@ import {UserProfile} from '../model/user-profile';
 import {EHealthContext} from '../model/ehealth-context';
 
 @Component({
-  selector: 'fut-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+    selector: 'fut-user-profile',
+    templateUrl: './user-profile.component.html',
+    styleUrls: ['./user-profile.component.css'],
+    standalone: false
 })
 export class UserProfileComponent implements OnInit {
   trim = IdType.trim;

@@ -3,9 +3,10 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import Communication = fhir.Communication;
 
 @Component({
-  selector: 'fhir-message-detail-modal',
-  templateUrl: './fhir-message-detail-modal.component.html',
-  styleUrls: ['./fhir-message-detail-modal.component.css']
+    selector: 'fhir-message-detail-modal',
+    templateUrl: './fhir-message-detail-modal.component.html',
+    styleUrls: ['./fhir-message-detail-modal.component.css'],
+    standalone: false
 })
 export class FhirMessageDetailModalComponent implements OnInit {
 

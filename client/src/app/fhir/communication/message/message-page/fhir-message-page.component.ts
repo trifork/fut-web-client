@@ -5,9 +5,10 @@ import {ActivatedRoute} from '@angular/router';
 import {map, switchMap} from 'rxjs/operators';
 
 @Component({
-  selector: 'fhir-message-page',
-  templateUrl: './fhir-message-page.component.html',
-  styleUrls: ['./fhir-message-page.component.css']
+    selector: 'fhir-message-page',
+    templateUrl: './fhir-message-page.component.html',
+    styleUrls: ['./fhir-message-page.component.css'],
+    standalone: false
 })
 export class FhirMessagePageComponent implements OnInit {
 

@@ -2,9 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import Patient = fhir.Patient;
 
 @Component({
-  selector: 'fhir-patient-detail',
-  templateUrl: './fhir-patient-detail.component.html',
-  styleUrls: ['./fhir-patient-detail.component.css']
+    selector: 'fhir-patient-detail',
+    templateUrl: './fhir-patient-detail.component.html',
+    styleUrls: ['./fhir-patient-detail.component.css'],
+    standalone: false
 })
 export class FhirPatientDetailComponent implements OnInit {
 

@@ -3,9 +3,10 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import CareTeam = fhir.CareTeam;
 
 @Component({
-  selector: 'fhir-care-team-detail-modal',
-  templateUrl: './fhir-care-team-detail-modal.component.html',
-  styleUrls: ['./fhir-care-team-detail-modal.component.css']
+    selector: 'fhir-care-team-detail-modal',
+    templateUrl: './fhir-care-team-detail-modal.component.html',
+    styleUrls: ['./fhir-care-team-detail-modal.component.css'],
+    standalone: false
 })
 export class FhirCareTeamDetailModalComponent implements OnInit {
 

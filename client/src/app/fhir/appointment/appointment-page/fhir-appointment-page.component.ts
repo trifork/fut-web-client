@@ -5,9 +5,10 @@ import {map, switchMap} from 'rxjs/operators';
 import Appointment = fhir.Appointment;
 
 @Component({
-  selector: 'fhir-appointment-page',
-  templateUrl: './fhir-appointment-page.component.html',
-  styleUrls: ['./fhir-appointment-page.component.css']
+    selector: 'fhir-appointment-page',
+    templateUrl: './fhir-appointment-page.component.html',
+    styleUrls: ['./fhir-appointment-page.component.css'],
+    standalone: false
 })
 export class FhirAppointmentPageComponent implements OnInit {
 

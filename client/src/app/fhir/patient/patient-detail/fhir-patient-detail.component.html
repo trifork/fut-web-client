@@ -1,7 +1,9 @@
-<div *ngIf="patient">
-  <p>{{fullName()}}</p>
-  <p>{{cpr()}}</p>
+@if (patient) {
   <div>
-    <ngx-json-viewer [json]="patient"></ngx-json-viewer>
+    <p>{{fullName()}}</p>
+    <p>{{cpr()}}</p>
+    <div>
+      <ngx-json-viewer [json]="patient"></ngx-json-viewer>
+    </div>
   </div>
-</div>
+}

@@ -13,16 +13,17 @@ import {UserService} from '../../../user/user.service';
 import {environment} from '../../../../environments/environment';
 
 @Component({
-  selector: 'fhir-patient-search',
-  templateUrl: './fhir-patient-search.component.html',
-  styleUrls: ['./fhir-patient-search.component.css'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0', visibility: 'hidden'})),
-      state('expanded', style({height: '*', visibility: 'visible'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ]
+    selector: 'fhir-patient-search',
+    templateUrl: './fhir-patient-search.component.html',
+    styleUrls: ['./fhir-patient-search.component.css'],
+    animations: [
+        trigger('detailExpand', [
+            state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+            state('expanded', style({ height: '*', visibility: 'visible' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+        ]),
+    ],
+    standalone: false
 })
 export class FhirPatientSearchComponent {
 
