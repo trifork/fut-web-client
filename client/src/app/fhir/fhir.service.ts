@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {BaseUrl} from '../app-routing/base-url';
 import {map} from 'rxjs/operators';
+import {FhirEndpointResolverService} from './fhir-endpoint-resolver.service';
+import {FhirResourceType} from './fhir-endpoint.config';
 import Patient = fhir.Patient;
 import Bundle = fhir.Bundle;
 import Appointment = fhir.Appointment;
@@ -17,12 +18,15 @@ import Task = fhir.Task;
 })
 export class FhirService {
 
-  constructor(private readonly http: HttpClient) {
+  constructor(
+    private readonly http: HttpClient,
+    private readonly endpointResolver: FhirEndpointResolverService
+  ) {
   }
 
   public readPatient(id: string): Observable<Patient> {
     return this.http.get<Patient>(
-      BaseUrl.get() + '/patient-service/fhir/Patient/' + id,
+      this.endpointResolver.buildResourceUrl('Patient', id),
       {
         observe: 'response'
       })
@@ -37,7 +41,7 @@ export class FhirService {
       .set('_count', '15')
       .set('_sort', 'family,given');
 
-    return this.http.get<Bundle>(BaseUrl.get() + '/patient-service/fhir/Patient',
+    return this.http.get<Bundle>(this.endpointResolver.buildResourceUrl('Patient'),
       {
         params,
         responseType: 'json',
@@ -51,7 +55,7 @@ export class FhirService {
       .set('_count', '15');
 
     return this.http.get<Bundle>(
-      BaseUrl.get() + '/patient-service/fhir/Communication',
+      this.endpointResolver.buildResourceUrl('Communication'),
       {
         params: httpParams,
         observe: 'response'
@@ -67,7 +71,7 @@ export class FhirService {
       .set('_count', '15');
 
     return this.http.get<Bundle>(
-      BaseUrl.get() + '/patient-service/fhir/Appointment',
+      this.endpointResolver.buildResourceUrl('Appointment'),
       {
         params,
         observe: 'response'
@@ -82,7 +86,7 @@ export class FhirService {
     const params = new HttpParams()
       .set('_count', '15');
     return this.http.get<Bundle>(
-      BaseUrl.get() + '/organization-service/fhir/Organization',
+      this.endpointResolver.buildResourceUrl('Organization'),
       {
         params,
         observe: 'body'
@@ -95,7 +99,7 @@ export class FhirService {
       .set('_count', '15');
 
     return this.http.get<Bundle>(
-      BaseUrl.get() + '/organization-service/fhir/CareTeam',
+      this.endpointResolver.buildResourceUrl('CareTeam'),
       {
         params,
         observe: 'body'
@@ -108,21 +112,21 @@ export class FhirService {
       .set('_count', '15');
 
     return this.http.get<Bundle>(
-      BaseUrl.get() + '/care-plan-service/fhir/EpisodeOfCare',
+      this.endpointResolver.buildResourceUrl('EpisodeOfCare'),
       {params, observe: 'body'}
     );
   }
 
 
-  public getPage(link: fhir.BundleLink, service: string): Observable<Bundle> {
+  public getPage(link: fhir.BundleLink, resourceType: FhirResourceType): Observable<Bundle> {
     const query = link.url.substr(link.url.lastIndexOf('?_getpages'));
-    const url = BaseUrl.get() + '/' + service + '/fhir' + query;
+    const url = this.endpointResolver.buildPaginationUrl(resourceType, query);
     return this.http.get<Bundle>(url, {observe: 'body'});
   }
 
   readAppointment(id: string): Observable<Appointment> {
     return this.http.get<Appointment>(
-      BaseUrl.get() + '/patient-service/fhir/Appointment/' + id,
+      this.endpointResolver.buildResourceUrl('Appointment', id),
       {
         observe: 'body'
       });
@@ -130,7 +134,7 @@ export class FhirService {
 
   readMessage(id: string): Observable<Communication> {
     return this.http.get<Communication>(
-      BaseUrl.get() + '/patient-service/fhir/Communication/' + id,
+      this.endpointResolver.buildResourceUrl('Communication', id),
       {
         observe: 'body'
       });
@@ -138,7 +142,7 @@ export class FhirService {
 
   readEpisodeOfCare(id: string): Observable<EpisodeOfCare> {
     return this.http.get<EpisodeOfCare>(
-      BaseUrl.get() + '/care-plan-service/fhir/EpisodeOfCare/' + id,
+      this.endpointResolver.buildResourceUrl('EpisodeOfCare', id),
       {
         observe: 'body'
       });
@@ -146,7 +150,7 @@ export class FhirService {
 
   readOrganization(id: string): Observable<Organization> {
     return this.http.get<Organization>(
-      BaseUrl.get() + '/organization-service/fhir/Organization/' + id,
+      this.endpointResolver.buildResourceUrl('Organization', id),
       {
         observe: 'body'
       });
@@ -154,7 +158,7 @@ export class FhirService {
 
   readCareTeam(id: string): Observable<CareTeam> {
     return this.http.get<CareTeam>(
-      BaseUrl.get() + '/organization-service/fhir/CareTeam/' + id,
+      this.endpointResolver.buildResourceUrl('CareTeam', id),
       {
         observe: 'body'
       });
@@ -162,7 +166,7 @@ export class FhirService {
 
   public readTask(id: string): Observable<Task> {
     return this.http.get<Task>(
-      BaseUrl.get() + '/task-service/fhir/Task/' + id,
+      this.endpointResolver.buildResourceUrl('Task', id),
       {
         responseType: 'json',
         observe: 'body'
@@ -173,7 +177,7 @@ export class FhirService {
     const params = (team != null ? new HttpParams().set('responsible', team) : new HttpParams())
       .set('_count', '15');
 
-    return this.http.get<Bundle>(BaseUrl.get() + '/task-service/fhir/Task',
+    return this.http.get<Bundle>(this.endpointResolver.buildResourceUrl('Task'),
       {
         params,
         responseType: 'json',

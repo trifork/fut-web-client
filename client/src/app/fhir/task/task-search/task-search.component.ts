@@ -38,11 +38,11 @@ export class TaskSearchComponent implements OnInit {
   }
 
   loadNext(): void {
-    this.fhir.getPage(this.next, 'task-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.next, 'Task').subscribe(b => this.bundle.next(b));
   }
 
   loadPrevious(): void {
-    this.fhir.getPage(this.previous, 'task-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.previous, 'Task').subscribe(b => this.bundle.next(b));
   }
 
   search(): void {

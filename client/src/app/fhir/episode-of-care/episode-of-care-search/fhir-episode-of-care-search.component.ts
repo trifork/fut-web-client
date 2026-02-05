@@ -50,11 +50,11 @@ export class FhirEpisodeOfCareSearchComponent implements OnInit {
   }
 
   loadNext(): void {
-    this.fhir.getPage(this.next, 'care-plan-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.next, 'EpisodeOfCare').subscribe(b => this.bundle.next(b));
   }
 
   loadPrevious(): void {
-    this.fhir.getPage(this.previous, 'care-plan-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.previous, 'EpisodeOfCare').subscribe(b => this.bundle.next(b));
   }
 
   search(): void {

@@ -42,11 +42,11 @@ export class FhirCareTeamSearchComponent implements OnInit {
   }
 
   loadNext(): void {
-    this.fhir.getPage(this.next, 'organization-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.next, 'CareTeam').subscribe(b => this.bundle.next(b));
   }
 
   loadPrevious(): void {
-    this.fhir.getPage(this.previous, 'organization-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.previous, 'CareTeam').subscribe(b => this.bundle.next(b));
   }
 
   search(): void {

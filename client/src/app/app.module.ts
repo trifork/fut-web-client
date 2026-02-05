@@ -66,6 +66,7 @@ import {TaskSearchComponent} from "./fhir/task/task-search/task-search.component
 import {TaskDetailComponent} from "./fhir/task/task-detail/task-detail.component";
 import {TaskDetailModalComponent} from "./fhir/task/task-detail-modal/task-detail-modal.component";
 import {TaskPageComponent} from "./fhir/task/task-page/task-page.component";
+import {DEFAULT_MULTI_SERVER_CONFIG, FHIR_ENDPOINT_CONFIG} from './fhir/fhir-endpoint.config';
 
 
 function initializeKeycloak(keycloak: KeycloakService): () => Promise<boolean> {
@@ -153,7 +154,8 @@ function initializeKeycloak(keycloak: KeycloakService): () => Promise<boolean> {
         { provide: NotificationService, useClass: NotificationService },
         { provide: LoadingService, useClass: LoadingService },
         { provide: ErrorHandler, useClass: NotifyingErrorHandler },
-        { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+        { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+        { provide: FHIR_ENDPOINT_CONFIG, useValue: (environment as any).fhirEndpoint || DEFAULT_MULTI_SERVER_CONFIG }
         // {
         //   provide: HTTP_INTERCEPTORS,
         //   useClass: NoCacheInterceptor,

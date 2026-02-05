@@ -303,7 +303,7 @@ describe('FhirService', () => {
         entry: []
       };
 
-      service.getPage(mockLink, 'patient-service').subscribe(bundle => {
+      service.getPage(mockLink, 'Patient').subscribe(bundle => {
         expect(bundle).toBeTruthy();
       });
 

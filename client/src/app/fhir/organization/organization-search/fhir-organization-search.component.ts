@@ -42,11 +42,11 @@ export class FhirOrganizationSearchComponent implements OnInit {
   }
 
   loadNext(): void {
-    this.fhir.getPage(this.next, 'organization-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.next, 'Organization').subscribe(b => this.bundle.next(b));
   }
 
   loadPrevious(): void {
-    this.fhir.getPage(this.previous, 'organization-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.previous, 'Organization').subscribe(b => this.bundle.next(b));
   }
 
   search(): void {

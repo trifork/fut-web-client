@@ -93,11 +93,11 @@ export class FhirPatientSearchComponent {
   }
 
   loadNext(): void {
-    this.fhir.getPage(this.next, 'patient-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.next, 'Patient').subscribe(b => this.bundle.next(b));
   }
 
   loadPrevious(): void {
-    this.fhir.getPage(this.previous, 'patient-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.previous, 'Patient').subscribe(b => this.bundle.next(b));
   }
 
   openDialog(resource: Patient): void {

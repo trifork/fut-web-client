@@ -43,11 +43,11 @@ export class FhirMessageSearchComponent implements OnInit {
   }
 
   loadNext(): void {
-    this.fhir.getPage(this.next, 'patient-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.next, 'Communication').subscribe(b => this.bundle.next(b));
   }
 
   loadPrevious(): void {
-    this.fhir.getPage(this.previous, 'patient-service').subscribe(b => this.bundle.next(b));
+    this.fhir.getPage(this.previous, 'Communication').subscribe(b => this.bundle.next(b));
   }
 
   search(): void {

@@ -4,7 +4,19 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'exttest.ehealth.sundhed.dk'
+  baseUrl: 'exttest.ehealth.sundhed.dk',
+  fhirEndpoint: {
+    mode: 'multi' as const,
+    resourceEndpoints: {
+      Patient: '/patient-service/fhir',
+      Appointment: '/patient-service/fhir',
+      Communication: '/patient-service/fhir',
+      Organization: '/organization-service/fhir',
+      CareTeam: '/organization-service/fhir',
+      EpisodeOfCare: '/care-plan-service/fhir',
+      Task: '/task-service/fhir'
+    }
+  }
 };
 
 /*
